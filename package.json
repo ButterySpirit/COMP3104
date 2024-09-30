@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Warning: No tests created yet.\""
+    "test": "echo \"Warning: No tests created yet.\"",
+    "build": "echo \"No build process configured yet.\""
   },
   "keywords": [],
   "author": "",
