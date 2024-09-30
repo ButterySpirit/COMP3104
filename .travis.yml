@@ -1,10 +1,23 @@
 language: node_js
 node_js:
-  - "stable"
+  - "14" # Use a stable version of Node.js (or adjust this if necessary)
+
+dist: xenial # Use Xenial or switch to Bionic for newer GLIBC versions
+
+cache:
+  directories:
+    - node_modules # Cache node_modules for faster builds
+
+install:
+  - npm install # Install dependencies
+
+script:
+  - npm run build # Adjust this if your build process uses a different command
+
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: $github_token
-  local_dir: build
+  github_token: $github_token  # Secure GitHub token for deployment
+  local_dir: build             # Directory containing the build output
   on:
-    branch: main
+    branch: main               # Deploy from the main branch
