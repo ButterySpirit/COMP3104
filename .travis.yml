@@ -3,7 +3,7 @@ node_js:
   - "14"
 branches:
   only:
-    - main  # This specifies that only the 'main' branch triggers a deployment.
+    - master  # This specifies that only the 'main' branch triggers a deployment.
 
 cache:
   directories:
@@ -23,4 +23,4 @@ deploy:
   github_token: $github_token  # Make sure this matches the name of the token you set in Travis CI environment variables.
   local_dir: build
   on:
-    branch: main  # Ensure this matches your branch name ('main' in this case).
+    branch: master  # Ensure this matches your branch name ('main' in this case).
