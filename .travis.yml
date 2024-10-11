@@ -1,18 +1,17 @@
 language: node_js
 node_js:
-  - "stable"
-
+  - "14"
 branches:
   only:
-  - master
+    - master  # This specifies that only the 'main' branch triggers a deployment.
 
 cache:
   directories:
-  - node_modules
+    - node_modules
 
 install:
   - npm install
-  - npm install -g yarn
+  - npm install -g yarn  # Added yarn installation as it may be beneficial for faster builds.
 
 script:
   #- yarn lint
@@ -25,3 +24,4 @@ deploy:
   local_dir: build
   on:
     branch: master
+
