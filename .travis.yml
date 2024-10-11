@@ -1,17 +1,26 @@
 language: node_js
 node_js:
   - "14"
+branches:
+  only:
+    - main  # This specifies that only the 'main' branch triggers a deployment.
+
 cache:
   directories:
     - node_modules
+
 install:
   - npm install
+  - npm install -g yarn  # Added yarn installation as it may be beneficial for faster builds.
+
 script:
-  - npm run build
+  - yarn build  # Using yarn for building (or switch back to npm if you prefer: npm run build)
+  - mv build/index.html build/404.html  # Adds a 404.html for GitHub Pages routing if it's an SPA
+
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: $github_token
+  github_token: $GITHUB_TOKEN  # Make sure this matches the name of the token you set in Travis CI environment variables.
   local_dir: build
   on:
-    branch: main
+    branch: main  # Ensure this matches your branch name ('main' in this case).
