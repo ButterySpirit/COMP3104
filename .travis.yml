@@ -20,7 +20,7 @@ script:
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: $github_token  # Make sure this matches the name of the token you set in Travis CI environment variables.
+  github_token: $GITHUB_TOKEN  # Make sure this matches the name of the token you set in Travis CI environment variables.
   local_dir: build
   on:
     branch: master  # Ensure this matches your branch name ('main' in this case).
